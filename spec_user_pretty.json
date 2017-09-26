@@ -38,9 +38,6 @@
     "com.juntaki.springfennecdemo.application.userApiParam.Info": {
       "type": "object",
       "properties": {
-        "secretInfo": {
-          "type": "string"
-        },
         "region": {
           "type": "string"
         }

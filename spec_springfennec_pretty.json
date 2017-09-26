@@ -66,9 +66,6 @@
     "com.juntaki.springfennecdemo.application.userApiParam.Info": {
       "type": "object",
       "properties": {
-        "secretInfo": {
-          "type": "string"
-        },
         "region": {
           "type": "string"
         }
@@ -85,6 +82,9 @@
     "com.juntaki.springfennecdemo.application.adminApiParam.Info": {
       "type": "object",
       "properties": {
+        "secretInfo": {
+          "type": "string"
+        },
         "region": {
           "type": "string"
         }
