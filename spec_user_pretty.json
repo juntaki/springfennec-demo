@@ -1,0 +1,58 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "User API"
+  },
+  "paths": {
+    "/demo/user/{id}": {
+      "get": {
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ]
+      }
+    },
+    "/demo/user": {
+      "post": {
+        "operationId": "createUser",
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.userApiParam"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "com.juntaki.springfennecdemo.application.userApiParam.Info": {
+      "type": "object",
+      "properties": {
+        "secretInfo": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "com.juntaki.springfennecdemo.application.userApiParam": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.userApiParam.Info"
+        }
+      }
+    }
+  }
+}

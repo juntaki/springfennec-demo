@@ -1,0 +1,55 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Admin API with secret info"
+  },
+  "paths": {
+    "/demo/admin/user/{id}": {
+      "get": {
+        "operationId": "getUserByAdmin",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ]
+      }
+    },
+    "/demo/admin/user": {
+      "post": {
+        "operationId": "createUserByAdmin",
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "com.juntaki.springfennecdemo.application.adminApiParam.Info": {
+      "type": "object",
+      "properties": {
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "com.juntaki.springfennecdemo.application.adminApiParam": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam.Info"
+        }
+      }
+    }
+  }
+}
