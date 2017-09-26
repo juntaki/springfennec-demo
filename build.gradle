@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		kotlinVersion = '1.1.4-3'
+		springBootVersion = '1.5.7.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+	}
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.juntaki'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+compileKotlin {
+	kotlinOptions.jvmTarget = "1.8"
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
+	compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+
+	// just for compare with Springfox
+	def springfoxSwaggerVersion = '2.7.0'
+	compile "io.springfox:springfox-swagger2:$springfoxSwaggerVersion"
+	compile "io.springfox:springfox-swagger-ui:$springfoxSwaggerVersion"
+
+	// Springfennec
+	def springfennecVersion = '1.0.2'
+	compile('io.swagger:swagger-core:1.5.16')
+	compile("com.juntaki:springfennec:${springfennecVersion}")
+	kapt("com.juntaki:springfennec:${springfennecVersion}")
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
