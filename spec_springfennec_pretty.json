@@ -16,7 +16,15 @@
             "type": "integer",
             "format": "int32"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.userApiParam"
+            }
+          }
+        }
       }
     },
     "/demo/user": {
@@ -30,7 +38,15 @@
               "$ref": "#/definitions/com.juntaki.springfennecdemo.application.userApiParam"
             }
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     },
     "/demo/admin/user/{id}": {
@@ -44,7 +60,15 @@
             "type": "integer",
             "format": "int32"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam"
+            }
+          }
+        }
       }
     },
     "/demo/admin/user": {
@@ -58,7 +82,15 @@
               "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam"
             }
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     }
   },
