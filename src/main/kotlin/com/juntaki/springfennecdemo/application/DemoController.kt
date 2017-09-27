@@ -41,25 +41,25 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/demo")
 class DemoController {
     @GetMapping("/user/{id}")
-    fun getUser(@PathVariable id: Int): userApiParam = userApiParam(userApiParam.Info("desert"))
+    fun getUser(@PathVariable id: Int): UserApiParam = UserApiParam(UserApiParam.Info("desert"))
 
     @PostMapping("/user")
-    fun createUser(@RequestBody param: userApiParam): Boolean = true
+    fun createUser(@RequestBody param: UserApiParam): Boolean = true
 
     @GetMapping("/admin/user/{id}")
-    fun getUserByAdmin(@PathVariable id: Int): adminApiParam = adminApiParam(adminApiParam.Info("secret", "desert"))
+    fun getUserByAdmin(@PathVariable id: Int): AdminApiParam = AdminApiParam(AdminApiParam.Info("secret", "desert"))
 
     @PostMapping("/admin/user")
-    fun createUserByAdmin(@RequestBody param: adminApiParam): Boolean = true
+    fun createUserByAdmin(@RequestBody param: AdminApiParam): Boolean = true
 }
 
-class userApiParam(
+class UserApiParam(
         val info: Info
 ) {
     data class Info(val region: String)
 }
 
-class adminApiParam(
+class AdminApiParam(
         val info: Info
 ) {
     class Info(

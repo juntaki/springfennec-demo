@@ -40,7 +40,7 @@
             "description": "param",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/adminApiParam"
+              "$ref": "#/definitions/AdminApiParam"
             }
           }
         ],
@@ -93,7 +93,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/adminApiParam"
+              "$ref": "#/definitions/AdminApiParam"
             }
           },
           "401": {
@@ -128,7 +128,7 @@
             "description": "param",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/userApiParam"
+              "$ref": "#/definitions/UserApiParam"
             }
           }
         ],
@@ -181,7 +181,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/userApiParam"
+              "$ref": "#/definitions/UserApiParam"
             }
           },
           "401": {
@@ -198,6 +198,14 @@
     }
   },
   "definitions": {
+    "AdminApiParam": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/Info"
+        }
+      }
+    },
     "Info": {
       "type": "object",
       "properties": {
@@ -209,15 +217,7 @@
         }
       }
     },
-    "adminApiParam": {
-      "type": "object",
-      "properties": {
-        "info": {
-          "$ref": "#/definitions/Info"
-        }
-      }
-    },
-    "userApiParam": {
+    "UserApiParam": {
       "type": "object",
       "properties": {
         "info": {
