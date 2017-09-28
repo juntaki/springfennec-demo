@@ -16,7 +16,15 @@
             "type": "integer",
             "format": "int32"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam"
+            }
+          }
+        }
       }
     },
     "/demo/admin/user": {
@@ -27,15 +35,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam"
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam"
             }
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
       }
     }
   },
   "definitions": {
-    "com.juntaki.springfennecdemo.application.adminApiParam.Info": {
+    "com.juntaki.springfennecdemo.application.AdminApiParam.Info": {
       "type": "object",
       "properties": {
         "secretInfo": {
@@ -46,11 +62,11 @@
         }
       }
     },
-    "com.juntaki.springfennecdemo.application.adminApiParam": {
+    "com.juntaki.springfennecdemo.application.AdminApiParam": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.adminApiParam.Info"
+          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam.Info"
         }
       }
     }
