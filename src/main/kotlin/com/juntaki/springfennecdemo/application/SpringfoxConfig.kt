@@ -18,4 +18,13 @@ class SpringfoxConfig {
                 .paths(PathSelectors.ant("/demo/**"))
                 .build()
     }
+
+    @Bean
+    fun DemoApiDocumentAnotherDocket(): Docket {
+        return Docket(DocumentationType.SWAGGER_2)
+                .groupName("springfox_suffix_test")
+                .select()
+                .paths(PathSelectors.ant("/demo/**"))
+                .build()
+    }
 }
