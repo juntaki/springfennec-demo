@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2
 @EnableSwagger2
 class SpringfoxConfig {
     @Bean
-    fun DemoApiDocument(): Docket {
+    fun demoApiDocument(): Docket {
         return Docket(DocumentationType.SWAGGER_2)
                 .groupName("springfox")
                 .select()
@@ -20,7 +20,7 @@ class SpringfoxConfig {
     }
 
     @Bean
-    fun DemoApiDocumentAnotherDocket(): Docket {
+    fun demoApiDocumentAnotherDocket(): Docket {
         return Docket(DocumentationType.SWAGGER_2)
                 .groupName("springfox_suffix_test")
                 .select()
