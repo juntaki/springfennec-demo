@@ -2,12 +2,16 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "User API"
+    "title": "Admin API with secret info"
   },
+  "host": "localhost:8080",
+  "schemes": [
+    "http"
+  ],
   "paths": {
-    "/demo/user/{id}": {
+    "/demo/admin/user/{id}": {
       "get": {
-        "operationId": "getUser",
+        "operationId": "getUserByAdmin",
         "parameters": [
           {
             "name": "id",
@@ -21,21 +25,21 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.UserApiParam"
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam"
             }
           }
         }
       }
     },
-    "/demo/user": {
+    "/demo/admin/user": {
       "post": {
-        "operationId": "createUser",
+        "operationId": "createUserByAdmin",
         "parameters": [
           {
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.UserApiParam"
+              "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam"
             }
           }
         ],
@@ -51,19 +55,22 @@
     }
   },
   "definitions": {
-    "com.juntaki.springfennecdemo.application.UserApiParam.Info": {
+    "com.juntaki.springfennecdemo.application.AdminApiParam.Info": {
       "type": "object",
       "properties": {
+        "secretInfo": {
+          "type": "string"
+        },
         "region": {
           "type": "string"
         }
       }
     },
-    "com.juntaki.springfennecdemo.application.UserApiParam": {
+    "com.juntaki.springfennecdemo.application.AdminApiParam": {
       "type": "object",
       "properties": {
         "info": {
-          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.UserApiParam.Info"
+          "$ref": "#/definitions/com.juntaki.springfennecdemo.application.AdminApiParam.Info"
         }
       }
     }

@@ -4,6 +4,10 @@
     "version": "1.0",
     "title": "All API for compareing with Springfox output"
   },
+  "host": "localhost:8080",
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/demo/user/{id}": {
       "get": {

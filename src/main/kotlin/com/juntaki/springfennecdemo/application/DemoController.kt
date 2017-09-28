@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*
                                 info = Info(
                                         version = "1.0",
                                         title = "User API"
-                                )
+                                ),
+                                host = "localhost:8080",
+                                schemes = arrayOf(SwaggerDefinition.Scheme.HTTP)
                         )
                 ),
                 ApiGroup(arrayOf("^/demo/admin.*"),
@@ -23,7 +25,9 @@ import org.springframework.web.bind.annotation.*
                                 info = Info(
                                         version = "1.0",
                                         title = "Admin API with secret info"
-                                )
+                                ),
+                                host = "localhost:8080",
+                                schemes = arrayOf(SwaggerDefinition.Scheme.HTTP)
                         )
                 ),
                 ApiGroup(arrayOf(".*"),
@@ -32,7 +36,9 @@ import org.springframework.web.bind.annotation.*
                                 info = Info(
                                         version = "1.0",
                                         title = "All API for compareing with Springfox output"
-                                )
+                                ),
+                                host = "localhost:8080",
+                                schemes = arrayOf(SwaggerDefinition.Scheme.HTTP)
                         )
                 )
         )
@@ -41,26 +47,26 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/demo")
 class DemoController {
     @GetMapping("/user/{id}")
-    fun getUser(@PathVariable id: Int): UserApiParam = UserApiParam(UserApiParam.Info("desert"))
+    fun getUser(@PathVariable id: Int): UserApiParam = UserApiParam()
 
     @PostMapping("/user")
     fun createUser(@RequestBody param: UserApiParam): Boolean = true
 
     @GetMapping("/admin/user/{id}")
-    fun getUserByAdmin(@PathVariable id: Int): AdminApiParam = AdminApiParam(AdminApiParam.Info("secret", "desert"))
+    fun getUserByAdmin(@PathVariable id: Int): AdminApiParam = AdminApiParam()
 
     @PostMapping("/admin/user")
     fun createUserByAdmin(@RequestBody param: AdminApiParam): Boolean = true
 }
 
 class UserApiParam(
-        val info: Info
+        val info: Info = Info("desert")
 ) {
     data class Info(val region: String)
 }
 
 class AdminApiParam(
-        val info: Info
+        val info: Info = Info("secret", "desert")
 ) {
     class Info(
             val secretInfo: String,
